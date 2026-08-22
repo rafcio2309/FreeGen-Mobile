@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FreeGen Mobile</title>
+  <style>
+    body{font-family:Arial,sans-serif;background:#111;color:#fff;margin:0;padding:24px}
+    .app{max-width:520px;margin:0 auto}
+    h1{margin-top:0}
+    textarea{width:100%;min-height:140px;box-sizing:border-box;padding:14px;border-radius:12px;border:1px solid #444;background:#1d1d1d;color:#fff;font-size:16px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+    button{padding:14px;border:0;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer}
+    .status{margin-top:18px;padding:14px;border-radius:12px;background:#1d1d1d;color:#bbb}
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>FreeGen Mobile</h1>
+    <p>Wpisz opis tego, co chcesz wygenerować.</p>
+    <textarea id="prompt" placeholder="Np. filmowe ujęcie nocnego miasta w deszczu..."></textarea>
+    <div class="row">
+      <button id="imageBtn">Generuj obraz</button>
+      <button id="videoBtn">Generuj film</button>
+    </div>
+    <div class="status" id="status">Na razie interfejs działa. API podłączymy w następnym kroku.</div>
+  </main>
+  <script>
+    const status = document.getElementById('status');
+    const prompt = document.getElementById('prompt');
+    document.getElementById('imageBtn').onclick = () => {
+      status.textContent = prompt.value.trim() ? 'Obraz: API jeszcze niepodłączone.' : 'Najpierw wpisz prompt.';
+    };
+    document.getElementById('videoBtn').onclick = () => {
+      status.textContent = prompt.value.trim() ? 'Film: API jeszcze niepodłączone.' : 'Najpierw wpisz prompt.';
+    };
+  </script>
+</body>
+</html>
